@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot name="atlas" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Include other atlas urdf files -->
+  <xacro:include filename="$(find atlas_description)/urdf/common_properties.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/chassis.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/left_track.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/right_track.urdf.xacro"/>
+  
+  <xacro:include filename="$(find atlas_description)/urdf/left_front_wheel.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/left_center_wheel.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/left_rear_wheel.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/right_front_wheel.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/right_center_wheel.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/right_rear_wheel.urdf.xacro"/>
+  
+  <xacro:include filename="$(find atlas_description)/urdf/imu.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/ultrasonic.urdf.xacro"/>
+  
+  <xacro:include filename="$(find atlas_description)/urdf/arm_base.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/arm_strut_1.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/arm_strut_2.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/arm_strut_3.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/gripper.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/left_gripper.urdf.xacro"/>
+  <xacro:include filename="$(find atlas_description)/urdf/right_gripper.urdf.xacro"/>
+  
+  <!-- Direction Definitions -->
+  <xacro:property name="left" value="1"/>
+  <xacro:property name="right" value="-1"/>
+  
+  <!-- Fixed Link Joint Definition -->
+  <xacro:macro name="create_fixed_link_joint" params="prefix parent joint_xyz joint_rpy">
+    <link name="${prefix}_link"/>
+    <joint name="${prefix}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}_link"/>
+      <origin xyz="${joint_xyz}" rpy="${joint_rpy}"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Base Link Definition -->
+  <link name="base_footprint"/>
+
+  <!-- Chassis Definition -->
+  <xacro:atlas_chassis prefix="chassis" parent="base_footprint" mass="3.0" link_xyz="0 0 0" link_rpy="0 0 0" joint_xyz="0 0 0" joint_rpy="0 0 0"/>
+  
+  <!-- Driving Wheel Definitions -->
+  <xacro:atlas_left_wheel prefix="left" parent="base_footprint" link_xyz="0 0 0" link_rpy="${pi/2} 0  0" joint_xyz="${wheel_center_height} ${(wheel_seperation*left)/2} ${wheel_diameter/2}"  joint_rpy="0 0 0" radius="${wheel_diameter/2}" height="${wheel_thickness}" mass="1.5"/>
+  <xacro:atlas_right_wheel prefix="right" parent="base_footprint" link_xyz="0 0 0" link_rpy="${pi/2} 0  0"  joint_xyz="${wheel_center_height} ${(wheel_seperation*right)/2} ${wheel_diameter/2}"  joint_rpy="0 0 0" radius="${wheel_diameter/2}" height="${wheel_thickness}" mass="1.5"/>
+  
+  <!-- Free Wheel Definitions -->
+  <!-- <xacro:left_front_wheel prefix="left_front" parent="base_footprint" link_xyz="0 0 0" link_rpy="0 0 0" joint_xyz="-0.111 0 ${wheel_diameter/2}" joint_rpy="0 0 0" radius="${wheel_diameter/2}" height=${wheel_thickness} mass="0.8"/> -->
+  <!-- <xacro:left_rear_wheel prefix="left_rear" parent="base_footprint" link_xyz="0 0 0" link_rpy="0 0 0" joint_xyz="-0.111 0 ${wheel_diameter/2}" joint_rpy="0 0 0" radius="${wheel_diameter/2}" height=${wheel_thickness} mass="0.8"/> -->
+  <!-- <xacro:right_front_wheel prefix="right_front" parent="base_footprint" link_xyz="0 0 0" link_rpy="0 0 0" joint_xyz="-0.111 0 ${wheel_diameter/2}" joint_rpy="0 0 0" radius="${wheel_diameter/2}" height=${wheel_thickness} mass="0.8"/> -->
+  <!-- <xacro:right_front_wheel prefix="right_rear" parent="base_footprint" link_xyz="0 0 0" link_rpy="0 0 0" joint_xyz="-0.111 0 ${wheel_diameter/2}" joint_rpy="0 0 0" radius="${wheel_diameter/2}" height=${wheel_thickness} mass="0.8"/> -->
+  
+  <!-- IMU Definition -->
+  <xacro:imu_sensor  prefix="imu" parent="base_link" joint_xyz="0 0 0.015" joint_rpy="0 0 0"/>
+
+  <!-- Ultrasonic Definition -->
+  <xacro:sonar_sensor name="ultrasonic" parent="base_link" ros_topic="sonar/front" update_rate="50" min_range="0.04" max_range="5.0" field_of_view="${60*pi/180}" ray_count="3">
+    <origin xyz="0.155 0 0.05" rpy="0 0 0"/>
+  </xacro:sonar_sensor>
+  
+  <!-- ARM GOES HERE -->
+	
+  <!-- Gazebo Differential Drive Definitions -->
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <rosDebugLevel>na</rosDebugLevel>
+      <leftJoint>left_wheel_joint</leftJoint>
+      <rightJoint>right_wheel_joint</rightJoint>
+      <wheelSeparation>${wheel_seperation}</wheelSeparation>
+      <wheelDiameter>${wheel_diameter}</wheelDiameter>
+      <wheelAcceleration>0</wheelAcceleration>
+      <wheelTorque>5</wheelTorque>
+      <odometrySource>world</odometrySource>
+      <torque>20</torque>
+      <commandTopic>/atlas/cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <legacyMode>false</legacyMode>
+      <publishWheelTF>true</publishWheelTF>
+      <publishTf>1</publishTf>
+      <publishWheelJointState>false</publishWheelJointState>
+    </plugin>
+  </gazebo>
+  
+  <!--<gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <robotNamespace>/atlas</robotNamespace>
+      <jointName>
+        left_wheel_joint, right_wheel_joint, caster_joint
+      </jointName>
+      <updateRate>100</updateRate>
+      <alwaysOn>true</alwaysOn>
+    </plugin>
+  </gazebo>-->
+
+  <!-- Gazebo Control Definition -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/atlas</robotNamespace>
+    </plugin>
+  </gazebo>  
+
+</robot>

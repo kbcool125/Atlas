@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot name="left_front_wheel" xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:property name="atlas_left_front_wheel_mesh" value="package://atlas_description/meshes/visual_model/left_front_wheel.dae"/>
+
+  <xacro:macro name="left_front_wheel_inertial" params="mass">
+    <inertial>
+      <mass value="${mass}"/>
+      <inertia ixx="0.0028656" ixy="-0.0000000" ixz="0.0000000" iyy="0.0028655" iyz="-0.0000000" izz="0.0055831" />
+    </inertial>
+  </xacro:macro>
+  
+  <xacro:macro name="atlas_left_front_wheel" params="prefix parent link_xyz link_rpy joint_xyz joint_rpy radius height mass">
+    <link name="${prefix}_wheel_link">
+      <visual>
+        <origin xyz="${link_xyz}" rpy="${link_rpy}" />
+        <geometry>
+	   <mesh filename="${atlas_left_front_wheel_mesh}"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+	  
+      <collision>
+        <origin xyz="${link_xyz}" rpy="${link_rpy}" />
+        <geometry>
+          <cylinder radius="${radius}" length="${height}"/>
+        </geometry>
+      </collision>
+      <xacro:left_front_wheel_inertial mass="${mass}"/>
+    </link>
+    
+    <joint name="${prefix}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}_link"/>
+      <origin rpy="${joint_rpy}" xyz="${joint_xyz}"/>
+    </joint>
+    
+    <gazebo reference="${prefix}_link">
+      <mu1>0.0</mu1>
+      <mu2>0.0</mu2>
+      <material>Gazebo/Grey</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+  </xacro:macro>
+  
+</robot>
