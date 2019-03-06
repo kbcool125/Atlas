@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author />
+      <authoring_tool>Rhinoceros 6.13.19058.371</authoring_tool>
+      <comments>Output from Rhinoceros COLLADA Exporter</comments>
+      <copyright />
+      <source_data />
+    </contributor>
+    <created>2019-03-04T21:46:41Z</created>
+    <modified>2019-03-04T21:46:41Z</modified>
+    <unit meter="1" name="Meters" />
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras>
+    <camera id="Camera-Perspective" name="Camera-Perspective">
+      <optics>
+        <technique_common>
+          <perspective>
+            <xfov>45.445807</xfov>
+            <aspect_ratio>1.744912</aspect_ratio>
+            <znear>1.148591</znear>
+            <zfar>1.531667</zfar>
+          </perspective>
+        </technique_common>
+      </optics>
+    </camera>
+    <camera id="Camera-Top" name="Camera-Top">
+      <optics>
+        <technique_common>
+          <orthographic>
+            <xmag>1.0</xmag>
+            <aspect_ratio>1.753425</aspect_ratio>
+            <znear>0.010000</znear>
+            <zfar>1.514488</zfar>
+          </orthographic>
+        </technique_common>
+      </optics>
+    </camera>
+    <camera id="Camera-Front" name="Camera-Front">
+      <optics>
+        <technique_common>
+          <orthographic>
+            <xmag>1.0</xmag>
+            <aspect_ratio>1.758242</aspect_ratio>
+            <znear>0.017976</znear>
+            <zfar>1.202435</zfar>
+          </orthographic>
+        </technique_common>
+      </optics>
+    </camera>
+    <camera id="Camera-Right" name="Camera-Right">
+      <optics>
+        <technique_common>
+          <orthographic>
+            <xmag>1.0</xmag>
+            <aspect_ratio>1.752747</aspect_ratio>
+            <znear>0.079981</znear>
+            <zfar>1.290591</zfar>
+          </orthographic>
+        </technique_common>
+      </optics>
+    </camera>
+  </library_cameras>
+  <library_materials>
+    <material id="abaad352-bdde-4c57-9cf3-7bc0552bd63d" name="Material-Plaster__8_">
+      <instance_effect url="#fx-abaad352-bdde-4c57-9cf3-7bc0552bd63d" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="fx-abaad352-bdde-4c57-9cf3-7bc0552bd63d">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color>0.000000 0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color>0.000000 0.000000 0.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <color>0.000000 0.713726 1.000000 1.000000</color>
+            </diffuse>
+            <specular>
+              <color>1.000000 1.000000 1.000000 1.000000</color>
+            </specular>
+            <reflective>
+              <color>1.000000 1.000000 1.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float>1.000000</float>
+            </reflectivity>
+            <transparent>
+              <color>1.000000 1.000000 1.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float>1.000000</float>
+            </transparency>
+            <index_of_refraction>
+              <float>0.000000</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+      <extra>
+        <technique profile="Rhino">
+          <appearance_hash>1643423309</appearance_hash>
+        </technique>
+      </extra>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="mesh-ab550820-483f-465c-ac3b-8dfa051fbcfc">
+      <mesh>
+        <source id="lib-position-ab550820-483f-465c-ac3b-8dfa051fbcfc" name="position">
+          <float_array id="lib-position-array-ab550820-483f-465c-ac3b-8dfa051fbcfc" count="72" digits="17" magnitude="308">0.0327519476413727 0.00743934791535139 0.469544470310211 0.0548421107232571 0.00743934791535139 0.469544470310211 0.0327519476413727 0.0349881686270237 0.469544470310211 0.0548421107232571 0.0349881686270237 0.469544470310211 0.0327519476413727 0.0349881686270237 0.469544470310211 0.0548421107232571 0.0349881686270237 0.469544470310211 0.0327519476413727 0.0349881686270237 0.504770815372467 0.0548421107232571 0.0349881686270237 0.504770815372467 0.0327519476413727 0.0349881686270237 0.504770815372467 0.0548421107232571 0.0349881686270237 0.504770815372467 0.0327519476413727 0.00743934791535139 0.504770815372467 0.0548421107232571 0.00743934791535139 0.504770815372467 0.0327519476413727 0.00743934791535139 0.504770815372467 0.0548421107232571 0.00743934791535139 0.504770815372467 0.0327519476413727 0.00743934791535139 0.469544470310211 0.0548421107232571 0.00743934791535139 0.469544470310211 0.0327519476413727 0.00743934791535139 0.469544470310211 0.0327519476413727 0.0349881686270237 0.469544470310211 0.0327519476413727 0.0349881686270237 0.504770815372467 0.0327519476413727 0.00743934791535139 0.504770815372467 0.0548421107232571 0.00743934791535139 0.469544470310211 0.0548421107232571 0.0349881686270237 0.469544470310211 0.0548421107232571 0.0349881686270237 0.504770815372467 0.0548421107232571 0.00743934791535139 0.504770815372467</float_array>
+          <technique_common>
+            <accessor count="24" offset="0" source="#lib-position-array-ab550820-483f-465c-ac3b-8dfa051fbcfc" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="lib-normal-ab550820-483f-465c-ac3b-8dfa051fbcfc" name="normal">
+          <float_array id="lib-normal-array-ab550820-483f-465c-ac3b-8dfa051fbcfc" count="72">0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000</float_array>
+          <technique_common>
+            <accessor count="24" offset="0" source="#lib-normal-array-ab550820-483f-465c-ac3b-8dfa051fbcfc" stride="3">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="lib-map1-ab550820-483f-465c-ac3b-8dfa051fbcfc" name="map1">
+          <float_array id="lib-map1-array-ab550820-483f-465c-ac3b-8dfa051fbcfc" count="48">0.000000 0.000000 0.000000 0.643093 0.219424 0.000000 0.219424 0.643093 0.219424 0.000000 0.219424 0.643093 0.500000 0.000000 0.500000 0.643093 0.500000 0.000000 0.500000 0.643093 0.719424 0.000000 0.719424 0.643093 0.719424 0.000000 0.719424 0.643093 1.000000 0.000000 1.000000 0.643093 0.280576 1.000000 0.280576 0.643094 0.000000 0.643094 0.000000 1.000000 1.000000 0.643094 1.000000 1.000000 0.719424 1.000000 0.719424 0.643094</float_array>
+          <technique_common>
+            <accessor count="24" offset="0" source="#lib-map1-array-ab550820-483f-465c-ac3b-8dfa051fbcfc" stride="2">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="lib-vertices-ab550820-483f-465c-ac3b-8dfa051fbcfc">
+          <input semantic="POSITION" source="#lib-position-ab550820-483f-465c-ac3b-8dfa051fbcfc" />
+        </vertices>
+        <triangles count="12" material="material-abaad352-bdde-4c57-9cf3-7bc0552bd63d">
+          <input offset="0" semantic="VERTEX" source="#lib-vertices-ab550820-483f-465c-ac3b-8dfa051fbcfc" />
+          <input offset="1" semantic="NORMAL" source="#lib-normal-ab550820-483f-465c-ac3b-8dfa051fbcfc" />
+          <input offset="2" semantic="TEXCOORD" source="#lib-map1-ab550820-483f-465c-ac3b-8dfa051fbcfc" />
+          <p>0 0 0 2 2 2 3 3 3 4 4 4 6 6 6 7 7 7 8 8 8 10 10 10 11 11 11 12 12 12 14 14 14 15 15 15 17 17 17 16 16 16 19 19 19 19 19 19 18 18 18 17 17 17 21 21 21 23 23 23 20 20 20 23 23 23 21 21 21 22 22 22 0 0 0 3 3 3 1 1 1 4 4 4 7 7 7 5 5 5 8 8 8 11 11 11 9 9 9 12 12 12 15 15 15 13 13 13</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="VisualSceneNode">
+      <node id="View-Perspective" name="View-Perspective">
+        <matrix>-0.120137 0.261962 -0.957571 -1.268545 -0.992757 -0.031701 0.115879 0.236082 0.000000 0.964557 0.263873 0.590590 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_camera url="#Camera-Perspective" />
+      </node>
+      <node id="View-Top" name="View-Top">
+        <matrix>1.000000 0.000000 0.000000 -0.015409 0.000000 1.000000 0.000000 0.001340 0.000000 0.000000 1.000000 1.014213 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_camera url="#Camera-Top" />
+      </node>
+      <node id="View-Front" name="View-Front">
+        <matrix>1.000000 0.000000 0.000000 -0.037855 0.000000 0.000000 -1.000000 -0.610210 0.000000 1.000000 0.000000 0.000823 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_camera url="#Camera-Front" />
+      </node>
+      <node id="View-Right" name="View-Right">
+        <matrix>0.000000 0.000000 1.000000 0.692591 1.000000 0.000000 0.000000 0.067235 0.000000 1.000000 0.000000 0.066983 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_camera url="#Camera-Right" />
+      </node>
+      <node id="a2df6727-5525-4147-b0e8-cfef1c649ab5" name="Extrusion">
+        <instance_geometry url="#mesh-ab550820-483f-465c-ac3b-8dfa051fbcfc">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="material-abaad352-bdde-4c57-9cf3-7bc0552bd63d" target="#abaad352-bdde-4c57-9cf3-7bc0552bd63d" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#VisualSceneNode" />
+  </scene>
+</COLLADA>
